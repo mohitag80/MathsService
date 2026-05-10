@@ -1,5 +1,5 @@
 # Using older Python base image with known OS-level CVEs
-FROM python:3.8.12-buster
+FROM python:3.8-bullseye
 
 LABEL maintainer="exam-platform@example.com"
 LABEL service="maths-service"
