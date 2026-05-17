@@ -24,6 +24,7 @@ app.register_blueprint(questions_bp, url_prefix='/api/maths')
 
 @app.route('/health')
 def health():
+    logger.debug("Health check requested")
     return {
         'service': app.config['SERVICE_NAME'],
         'version': app.config['SERVICE_VERSION'],
