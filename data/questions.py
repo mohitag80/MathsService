@@ -1,7 +1,7 @@
-import logging
+# import logging
 from models.question import Question
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 QUESTION_BANK = [
     # Grade 9 - Algebra
@@ -140,31 +140,31 @@ QUESTION_BANK = [
 
 
 def get_all_topics():
-    logger.debug("Fetching all available topics from question bank")
+    # logger.debug("Fetching all available topics from question bank")
     topics = list(set(q.topic for q in QUESTION_BANK))
-    logger.info("Found %d unique topics", len(topics))
+    # logger.info("Found %d unique topics", len(topics))
     return topics
 
 
 def get_questions_by_grade(grade: int, n: int):
-    logger.debug("Querying question bank for grade=%d, limit=%d", grade, n)
+    # logger.debug("Querying question bank for grade=%d, limit=%d", grade, n)
     filtered = [q for q in QUESTION_BANK if q.grade == grade]
     result = filtered[:n]
-    logger.info("Retrieved %d of %d available questions for grade %d", len(result), len(filtered), grade)
+    # logger.info("Retrieved %d of %d available questions for grade %d", len(result), len(filtered), grade)
     return result
 
 
 def get_questions_by_topic(topic: str, n: int):
-    logger.debug("Querying question bank for topic='%s', limit=%d", topic, n)
+    # logger.debug("Querying question bank for topic='%s', limit=%d", topic, n)
     filtered = [q for q in QUESTION_BANK if q.topic.lower() == topic.lower()]
     result = filtered[:n]
-    logger.info("Retrieved %d of %d available questions for topic '%s'", len(result), len(filtered), topic)
+    # logger.info("Retrieved %d of %d available questions for topic '%s'", len(result), len(filtered), topic)
     return result
 
 
 def get_questions_by_complexity(complexity: str, n: int):
-    logger.debug("Querying question bank for complexity='%s', limit=%d", complexity, n)
+    # logger.debug("Querying question bank for complexity='%s', limit=%d", complexity, n)
     filtered = [q for q in QUESTION_BANK if q.complexity.lower() == complexity.lower()]
     result = filtered[:n]
-    logger.info("Retrieved %d of %d available questions with complexity '%s'", len(result), len(filtered), complexity)
+    # logger.info("Retrieved %d of %d available questions with complexity '%s'", len(result), len(filtered), complexity)
     return result
